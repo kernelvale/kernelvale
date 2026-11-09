@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/cover-dark.svg">
-  <img src="assets/cover-light.svg" alt="kernelvale — 追到原因，做成工具，验证结果" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kernelvale/kernelvale/main/assets/cover-dark.svg">
+  <img src="https://raw.githubusercontent.com/kernelvale/kernelvale/main/assets/cover-light.svg" alt="kernelvale — 追到原因，做成工具，验证结果" width="100%">
 </picture>
 
 ### 把问题追到根因，把工具做成可用的产品。
