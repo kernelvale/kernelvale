@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="292" viewBox="0 0 1200 292" role="img" aria-label="kernelvale — tools, systems, everyday work">
+<rect width="1200" height="292" rx="20" fill="#f4f5ef"/>
+<g fill="none" stroke="#d9e2d6" stroke-width="1">
+<path d="M912 0v292M1008 0v292M1104 0v292M864 74h336M864 146h336M864 218h336"/>
+<circle cx="1008" cy="146" r="92"/><circle cx="1008" cy="146" r="48"/>
+</g>
+<path d="M960 146h48v-48m0 48h48v48" fill="none" stroke="#467c65" stroke-width="3"/>
+<g fill="#467c65"><circle cx="960" cy="146" r="5"/><circle cx="1008" cy="98" r="5"/><circle cx="1056" cy="194" r="5"/></g>
+<text x="64" y="66" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="3.5" fill="#52675e">TOOLS / SYSTEMS / EVERYDAY WORK</text>
+<text x="60" y="155" font-family="Arial,Helvetica,sans-serif" font-size="78" font-weight="600" letter-spacing="-4" fill="#1c2d28">kernelvale</text>
+<path d="M64 191h52" stroke="#467c65" stroke-width="3"/>
+<text x="64" y="236" font-family="Arial,Helvetica,sans-serif" font-size="16" letter-spacing="1" fill="#52675e">Trace the cause. Build the tool. Verify the result.</text>
+</svg>
