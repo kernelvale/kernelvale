@@ -1,0 +1,44 @@
+name: Check profile
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-checks-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Profile checks (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      GITHUB_TOKEN: ""
+      GH_TOKEN: ""
+    steps:
+      - name: Check out proposed changes
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Run offline unit and repository tests
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Check committed rendering is up to date
+        run: python scripts/update_profile.py --offline data/profile.json --check
+      - name: Confirm checks did not change tracked files
+        run: git diff --exit-code
