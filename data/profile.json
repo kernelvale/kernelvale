@@ -1,0 +1,40 @@
+{
+  "username": "kernelvale",
+  "updated_at": "2026-11-12",
+  "contributions": [
+    {
+      "repo": "KKKKhazix/AIHOT",
+      "stars": 10407,
+      "prs": [
+        {
+          "number": 375,
+          "title": "修复事件归组的状态一致性、批量召回和连续合并解析",
+          "merged_at": "2026-11-10T11:39:23Z"
+        }
+      ],
+      "note": "事件归组一致性、批量向量召回与连续合并解析"
+    }
+  ],
+  "featured": [
+    {
+      "repo": "kernelvale/deepseek-harness-fixes",
+      "stars": 0,
+      "language": "TypeScript"
+    },
+    {
+      "repo": "kernelvale/feishu-assistant",
+      "stars": 0,
+      "language": "Python"
+    },
+    {
+      "repo": "kernelvale/leetcode-hot100",
+      "stars": 55,
+      "language": "JavaScript"
+    },
+    {
+      "repo": "kernelvale/english-reader",
+      "stars": 0,
+      "language": "JavaScript"
+    }
+  ]
+}

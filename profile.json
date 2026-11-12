@@ -1,0 +1,14 @@
+{
+  "username": "kernelvale",
+  "contribution_notes": {
+    "KKKKhazix/AIHOT": "事件归组一致性、批量向量召回与连续合并解析"
+  },
+  "featured_repositories": [
+    "kernelvale/deepseek-harness-fixes",
+    "kernelvale/feishu-assistant",
+    "kernelvale/leetcode-hot100",
+    "kernelvale/english-reader"
+  ],
+  "max_contribution_repos": 8,
+  "max_recent_prs": 4
+}

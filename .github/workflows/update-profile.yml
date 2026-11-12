@@ -1,0 +1,66 @@
+name: Update profile
+
+on:
+  schedule:
+    # UTC 01:27 = Beijing 09:27; scheduled runs may be delayed by GitHub.
+    - cron: "27 1 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "profile.json"
+      - ".github/workflows/update-profile.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-refresh-main
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.repository == 'kernelvale/kernelvale' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Check out profile
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: Test updater
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Refresh public contributions and stars
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python scripts/update_profile.py
+      - name: Verify deterministic rendering
+        run: python scripts/update_profile.py --offline data/profile.json --check
+      - name: Commit changes if needed
+        run: |
+          git add README.md assets/profile-stats-light.svg assets/profile-stats-dark.svg data/profile.json
+          if git diff --cached --quiet; then
+            echo "No profile data changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh public profile data [skip ci]"
+          for attempt in 1 2 3; do
+            # Keep concurrent human edits; never force-push or discard conflicts.
+            git pull --rebase origin main
+            python scripts/update_profile.py --offline data/profile.json --check
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+          done
+          echo "Remote changed repeatedly; profile update was not pushed."
+          exit 1

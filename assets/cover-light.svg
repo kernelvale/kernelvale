@@ -1,13 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="292" viewBox="0 0 1200 292" role="img" aria-label="kernelvale — tools, systems, everyday work">
-<rect width="1200" height="292" rx="20" fill="#f4f5ef"/>
-<g fill="none" stroke="#d9e2d6" stroke-width="1">
-<path d="M912 0v292M1008 0v292M1104 0v292M864 74h336M864 146h336M864 218h336"/>
-<circle cx="1008" cy="146" r="92"/><circle cx="1008" cy="146" r="48"/>
-</g>
-<path d="M960 146h48v-48m0 48h48v48" fill="none" stroke="#467c65" stroke-width="3"/>
-<g fill="#467c65"><circle cx="960" cy="146" r="5"/><circle cx="1008" cy="98" r="5"/><circle cx="1056" cy="194" r="5"/></g>
-<text x="64" y="66" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="3.5" fill="#52675e">TOOLS / SYSTEMS / EVERYDAY WORK</text>
-<text x="60" y="155" font-family="Arial,Helvetica,sans-serif" font-size="78" font-weight="600" letter-spacing="-4" fill="#1c2d28">kernelvale</text>
-<path d="M64 191h52" stroke="#467c65" stroke-width="3"/>
-<text x="64" y="236" font-family="Arial,Helvetica,sans-serif" font-size="16" letter-spacing="1" fill="#52675e">Trace the cause. Build the tool. Verify the result.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">kernelvale — Agent Algorithms &amp; LLM Post-training</title>
+  <desc id="desc">Research interests: Agent algorithms and large language model post-training. Plan, act, evaluate, learn.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#dce7f5" stroke-width="0.6"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#537ab5"/></marker>
+  </defs>
+  <rect width="1200" height="300" rx="20" fill="#f2f6fc"/>
+  <rect x="780" y="24" width="396" height="252" rx="16" fill="url(#grid)"/>
+  <path d="M760 40V260" stroke="#d7e2f0"/>
+  <text x="58" y="52" font-family="Arial,Helvetica,sans-serif" font-size="12" letter-spacing="3.2" fill="#526a87">RESEARCH INTERESTS / OPEN-SOURCE PRACTICE</text>
+  <text x="54" y="148" font-family="Arial,Helvetica,sans-serif" font-size="80" font-weight="700" letter-spacing="-3.5" fill="#172d4b">kernelvale</text>
+  <rect x="58" y="174" width="198" height="32" rx="7" fill="#e0ebfc"/>
+  <text x="157" y="195" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="600" letter-spacing="0.8" fill="#2855a0">AGENT ALGORITHMS</text>
+  <rect x="268" y="174" width="222" height="32" rx="7" fill="#e1efec"/>
+  <text x="379" y="195" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="600" letter-spacing="0.8" fill="#22645b">LLM POST-TRAINING</text>
+  <text x="58" y="256" font-family="Arial,Helvetica,sans-serif" font-size="15" letter-spacing="0.5" fill="#526a87">Build reliable agents. Learn from feedback.</text>
+  <g fill="none" stroke="#537ab5" stroke-width="1.8" marker-end="url(#arrow)">
+    <path d="M956 91H1000"/><path d="M1070 113V180"/><path d="M1000 205H956"/><path d="M886 180V113"/>
+  </g>
+  <g fill="#ffffff" stroke="#c7d7ed">
+    <rect x="816" y="66" width="140" height="48" rx="10"/><rect x="1000" y="66" width="140" height="48" rx="10"/>
+    <rect x="1000" y="181" width="140" height="48" rx="10"/><rect x="816" y="181" width="140" height="48" rx="10"/>
+  </g>
+  <g fill="#315a91" font-family="Arial,Helvetica,sans-serif" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="1.5">
+    <text x="886" y="95">PLAN</text><text x="1070" y="95">ACT</text><text x="1070" y="210">EVALUATE</text><text x="886" y="210">LEARN</text>
+  </g>
+  <circle cx="978" cy="148" r="4" fill="#3c7d72"/>
+  <text x="978" y="266" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10" letter-spacing="2.5" fill="#687f9b">A FEEDBACK LOOP</text>
 </svg>
