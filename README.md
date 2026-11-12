@@ -30,7 +30,7 @@
 <!-- CONTRIBUTIONS:START -->
 | 公共上游仓库 | 我的贡献 | 已合并 PR | 最近 PR | 🌟 仓库 Stars |
 | --- | --- | ---: | --- | ---: |
-| [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) | 事件归组一致性、批量向量召回与连续合并解析 | 1 | [\#375](https://github.com/KKKKhazix/AIHOT/pull/375) | 10.4k |
+| [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) | 事件归组一致性、批量向量召回与连续合并解析 | 1 | [\#375](https://github.com/KKKKhazix/AIHOT/pull/375) | 10.5k |
 
 最近合并的公开 PR：
 
@@ -93,7 +93,7 @@ Stars 为仓库指标，非个人获得。
 | --- | ---: | --- |
 | [deepseek\-harness\-fixes](https://github.com/kernelvale/deepseek-harness-fixes) | 0 | TypeScript |
 | [feishu\-assistant](https://github.com/kernelvale/feishu-assistant) | 0 | Python |
-| [leetcode\-hot100](https://github.com/kernelvale/leetcode-hot100) | 55 | JavaScript |
+| [leetcode\-hot100](https://github.com/kernelvale/leetcode-hot100) | 56 | JavaScript |
 | [english\-reader](https://github.com/kernelvale/english-reader) | 0 | JavaScript |
 <!-- PROJECT-STARS:END -->
 
