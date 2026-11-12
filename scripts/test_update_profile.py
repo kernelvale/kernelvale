@@ -208,6 +208,40 @@ class CollectionTests(unittest.TestCase):
 
 
 class RenderingTests(unittest.TestCase):
+    def test_github_star_format_thresholds_and_rounding(self):
+        cases = {
+            0: "0", 55: "55", 999: "999", 1000: "1k", 1001: "1k",
+            1049: "1k", 1050: "1.1k", 1100: "1.1k", 1200: "1.2k",
+            9950: "10k", 10000: "10k", 10408: "10.4k",
+            12345: "12.3k", 12350: "12.4k", 99949: "99.9k",
+            99950: "100k", 100000: "100k", 100499: "100k",
+            100500: "101k", 195200: "195k", 458800: "459k",
+        }
+        for value, expected in cases.items():
+            with self.subTest(value=value):
+                self.assertEqual(profile.format_stars(value), expected)
+        for invalid in (-1, True, 1.2, "1000"):
+            with self.subTest(invalid=invalid), self.assertRaises(profile.ProfileError):
+                profile.format_stars(invalid)
+
+    def test_star_format_applies_to_both_tables_and_svg_not_snapshot(self):
+        snapshot = sample_snapshot()
+        snapshot["featured"][0]["stars"] = 10408
+        original = copy.deepcopy(snapshot)
+        regions = profile.render_regions(snapshot, config())
+        self.assertIn("| 12.3k |", regions["CONTRIBUTIONS"])
+        self.assertIn("| 10.4k |", regions["PROJECT-STARS"])
+        for dark in (False, True):
+            svg = profile.render_svg(snapshot, dark)
+            self.assertIn(">12.4k</text>", svg)
+            self.assertIn(">10.4k</text>", svg)
+        self.assertEqual(snapshot, original)
+        self.assertEqual(profile.metrics(snapshot), (2, 3, 12351, 10421))
+        outputs = profile.render_outputs(Path("/unused"), README, snapshot, config())
+        stored = json.loads(outputs[Path("/unused/data/profile.json")])
+        self.assertEqual(stored["contributions"][0]["stars"], 12345)
+        self.assertEqual(stored["featured"][0]["stars"], 10408)
+
     def test_markdown_special_characters_do_not_break_table(self):
         value = "修复 | [伪链接](javascript:x) <script> & `code` *粗体* _下划线_ \\ #标题\r\n新行"
         escaped = profile.markdown(value)
@@ -260,8 +294,8 @@ class RenderingTests(unittest.TestCase):
         self.assertIn(f"数据日期（UTC）：{TODAY}", once)
         self.assertIn("Stars 为仓库指标，非个人获得", once)
         self.assertNotIn("2026-11-12T", once)
-        self.assertIn("| 12345 |", once)
-        self.assertNotIn("12.3k", once)
+        self.assertIn("| 12.3k |", once)
+        self.assertNotIn("| 12345 |", once)
         self.assertIn("[demo](https://github.com/kernelvale/demo)", regions["PROJECT-STARS"])
         self.assertNotIn("[kernelvale/", regions["PROJECT-STARS"])
         self.assertLess(regions["PROJECT-STARS"].index("[demo]"), regions["PROJECT-STARS"].index("[second]"))
@@ -282,7 +316,7 @@ class RenderingTests(unittest.TestCase):
             self.assertEqual((root.get("width"), root.get("height")), ("1200", "150"))
             ns = {"svg": "http://www.w3.org/2000/svg"}
             texts = [node.text for node in root.findall(".//svg:text", ns)]
-            for value in ("2", "3", "12351", "24", "外部贡献仓库数", "已合并外部PR数",
+            for value in ("2", "3", "12.4k", "24", "外部贡献仓库数", "已合并外部PR数",
                           "贡献仓库Stars合计", "精选项目Stars合计"):
                 self.assertIn(value, texts)
             self.assertIn("非个人获得", svg)

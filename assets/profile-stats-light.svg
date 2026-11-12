@@ -10,7 +10,7 @@
 <text x="450" y="91" font-size="36" font-weight="700" fill="#172b4d">1</text>
 <path d="M600 24v80" stroke="#dce3eb"/>
 <text x="750" y="40" font-size="16" fill="#52647a">贡献仓库Stars合计</text>
-<text x="750" y="91" font-size="36" font-weight="700" fill="#172b4d">10408</text>
+<text x="750" y="91" font-size="36" font-weight="700" fill="#172b4d">10.4k</text>
 <path d="M900 24v80" stroke="#dce3eb"/>
 <text x="1050" y="40" font-size="16" fill="#52647a">精选项目Stars合计</text>
 <text x="1050" y="91" font-size="36" font-weight="700" fill="#172b4d">55</text>

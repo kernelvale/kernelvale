@@ -343,13 +343,30 @@ def pr_link(name, pr, title=False):
     return f"[{markdown(label)}]({GITHUB_BASE}/{name}/pull/{pr['number']})"
 
 
+def format_stars(value):
+    """Match GitHub's compact Star button: integers below 1k, then lowercase k.
+
+    Keep one decimal below 100k and whole thousands from 100k onward;
+    omit a trailing .0 and round positive halves up without float errors.
+    The public snapshot always retains the original integer count.
+    """
+    integer(value, "Stars")
+    if value < 1000:
+        return str(value)
+    if value < 100000:
+        tenths = (value + 50) // 100
+        whole, fraction = divmod(tenths, 10)
+        return f"{whole}.{fraction}k" if fraction else f"{whole}k"
+    return f"{(value + 500) // 1000}k"
+
+
 def render_regions(snapshot, config):
     lines = ["| 公共上游仓库 | 我的贡献 | 已合并 PR | 最近 PR | 🌟 仓库 Stars |",
              "| --- | --- | ---: | --- | ---: |"]
     for row in snapshot["contributions"][:config["max_contribution_repos"]]:
         links = "、".join(pr_link(row["repo"], pr) for pr in row["prs"][:2])
         lines.append(f"| {repo_link(row['repo'])} | {markdown(row['note'])} | "
-                     f"{len(row['prs'])} | {links} | {row['stars']} |")
+                     f"{len(row['prs'])} | {links} | {format_stars(row['stars'])} |")
     recent = [(row["repo"], pr) for row in snapshot["contributions"] for pr in row["prs"]]
     recent.sort(key=lambda pair: (pair[0].casefold(), -pair[1]["number"]))
     recent.sort(key=lambda pair: pair[1]["merged_at"], reverse=True)
@@ -361,7 +378,7 @@ def render_regions(snapshot, config):
                   f"数据日期（UTC）：{snapshot['updated_at']}。"])
     projects = ["| 项目 | 🌟 Stars | 主要语言 |", "| --- | ---: | --- |"]
     for row in snapshot["featured"]:
-        projects.append(f"| {repo_link(row['repo'], short=True)} | {row['stars']} | "
+        projects.append(f"| {repo_link(row['repo'], short=True)} | {format_stars(row['stars'])} | "
                         f"{markdown(row['language'] or '—')} |")
     return {"CONTRIBUTIONS": "\n".join(lines), "PROJECT-STARS": "\n".join(projects)}
 
@@ -412,9 +429,10 @@ def render_svg(snapshot, dark=False):
         x = 150 + 300 * index
         if index:
             parts.append(f'<path d="M{300 * index} 24v80" stroke="{border}"/>')
+        display_value = format_stars(value) if index >= 2 else str(value)
         parts.extend([
             f'<text x="{x}" y="40" font-size="16" fill="{muted}">{label}</text>',
-            f'<text x="{x}" y="91" font-size="36" font-weight="700" fill="{foreground}">{value}</text>',
+            f'<text x="{x}" y="91" font-size="36" font-weight="700" fill="{foreground}">{display_value}</text>',
         ])
     footer = html.escape(f"Stars 为仓库指标，非个人获得 · 数据日期：{snapshot['updated_at']} UTC")
     parts.extend([f'<text x="600" y="133" font-size="13" fill="{muted}">{footer}</text>',

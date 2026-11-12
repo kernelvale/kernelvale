@@ -27,12 +27,10 @@
   <img src="https://raw.githubusercontent.com/kernelvale/kernelvale/main/assets/profile-stats-light.svg" alt="公开贡献统计：外部贡献仓库、已合并 PR、贡献仓库 Stars、精选项目 Stars" width="100%">
 </picture>
 
-仅收录 **我提交并已合并到外部公共上游仓库的 PR**；自动发现新贡献，追踪仓库 🌟。不把 fork、收藏或尚未合并的补丁计入。
-
 <!-- CONTRIBUTIONS:START -->
 | 公共上游仓库 | 我的贡献 | 已合并 PR | 最近 PR | 🌟 仓库 Stars |
 | --- | --- | ---: | --- | ---: |
-| [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) | 事件归组一致性、批量向量召回与连续合并解析 | 1 | [\#375](https://github.com/KKKKhazix/AIHOT/pull/375) | 10408 |
+| [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) | 事件归组一致性、批量向量召回与连续合并解析 | 1 | [\#375](https://github.com/KKKKhazix/AIHOT/pull/375) | 10.4k |
 
 最近合并的公开 PR：
 
