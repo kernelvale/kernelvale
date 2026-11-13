@@ -30,14 +30,14 @@
 <!-- CONTRIBUTIONS:START -->
 | 公共上游仓库 | 我的贡献 | 已合并 PR | 最近 PR | 🌟 仓库 Stars |
 | --- | --- | ---: | --- | ---: |
-| [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) | 事件归组一致性、批量向量召回与连续合并解析 | 1 | [\#375](https://github.com/KKKKhazix/AIHOT/pull/375) | 10.5k |
+| [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) | 事件归组一致性、批量向量召回与连续合并解析 | 1 | [\#375](https://github.com/KKKKhazix/AIHOT/pull/375) | 10.6k |
 
 最近合并的公开 PR：
 
 - [KKKKhazix/AIHOT\#375 · 修复事件归组的状态一致性、批量召回和连续合并解析](https://github.com/KKKKhazix/AIHOT/pull/375)
 
 Stars 为仓库指标，非个人获得。
-数据日期（UTC）：2026-11-12。
+数据日期（UTC）：2026-11-13。
 <!-- CONTRIBUTIONS:END -->
 
 <a id="agent-in-practice"></a>
