@@ -37,7 +37,7 @@
 - [KKKKhazix/AIHOT\#375 · 修复事件归组的状态一致性、批量召回和连续合并解析](https://github.com/KKKKhazix/AIHOT/pull/375)
 
 Stars 为仓库指标，非个人获得。
-数据日期（UTC）：2026-11-23。
+数据日期（UTC）：2026-11-24。
 <!-- CONTRIBUTIONS:END -->
 
 <a id="agent-in-practice"></a>
@@ -93,7 +93,7 @@ Stars 为仓库指标，非个人获得。
 | --- | ---: | --- |
 | [deepseek\-harness\-fixes](https://github.com/kernelvale/deepseek-harness-fixes) | 0 | TypeScript |
 | [feishu\-assistant](https://github.com/kernelvale/feishu-assistant) | 0 | Python |
-| [leetcode\-hot100](https://github.com/kernelvale/leetcode-hot100) | 56 | JavaScript |
+| [leetcode\-hot100](https://github.com/kernelvale/leetcode-hot100) | 57 | JavaScript |
 | [english\-reader](https://github.com/kernelvale/english-reader) | 0 | JavaScript |
 <!-- PROJECT-STARS:END -->
 
